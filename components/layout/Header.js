@@ -4,15 +4,17 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import Hamburger from '../module/Hamburger'
 
-import { IoIosSearch, IoIosHeartEmpty, } from "react-icons/io";
+import { IoIosSearch, IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Search from '../module/Search'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false); // Open and close the menu on mobile 
   const [showBottomNav, setShowBottomNav] = useState(true); // Show navigation menu when scroll down
   const [lastScrollY, setLastScrollY] = useState(0); // For scrolling up and down 
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +68,7 @@ function Header() {
         <div className='flex justify-end items-center px-10 max-lg:hidden'>
           <Link className='ml-10 text-lg' href="/auth">ثبت نام / ورود</Link>
           <ul className='flex justify-center items-center ml-8'>
-            <li className='text-xl ml-2'><IoIosSearch /></li>
+            <li className='text-xl ml-2 cursor-pointer' onClick={() => setIsSearchOpen(true)}><IoIosSearch /></li>
             <li className='text-xl ml-2'><IoIosHeartEmpty /></li>
             <li className='text-xl ml-8'><IoCartOutline /></li>
             <li>
@@ -80,13 +82,12 @@ function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <div className='lg:hidden flex justify-between items-center px-2 shadow-md'
-        style={{ backgroundColor: "var(--background-color)", color: "var(--text-color)" }}>
+      <div className='lg:hidden flex justify-between items-center px-2 shadow-md'>
         <div className='flex items-center'>
           <Hamburger menuHandler={menuHandler} />
         </div>
         <div>
-          <Image src="/images/logo.png" width={1200} height={900} alt='logo' className='w-36 h-auto' />
+          <Image src="/images/logo.png" width={1200} height={900} alt='logo' className='w-28 md:w-36 h-auto' />
         </div>
       </div>
       <AnimatePresence>
@@ -136,7 +137,7 @@ function Header() {
         <div className='flex justify-between items-center'>
           <Link className='ml-10 text-lg' href="/auth">ثبت نام / ورود</Link>
           <ul className='flex justify-center items-center ml-8'>
-            <li className='text-xl ml-2'><IoIosSearch /></li>
+            <li className='text-xl ml-2 cursor-pointer' onClick={() => setIsSearchOpen(!isSearchOpen)}><IoIosSearch /></li>
             <li className='text-xl ml-2'><IoIosHeartEmpty /></li>
             <li className='text-xl ml-8'><IoCartOutline /></li>
             <li>
@@ -148,6 +149,21 @@ function Header() {
           </ul>
         </div>
       </motion.div>
+
+      {/* Search Section */}
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div
+            initial={{ y: -300 }} // Start above the screen
+            animate={{ y: 0 }}    // Animate to its position
+            exit={{ y: -300 }}    // Exit back above the screen when closed
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed top-0 right-0 p-4 shadow-md w-full bg-white z-50"
+          >
+            <Search setIsSearchOpen={setIsSearchOpen} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
