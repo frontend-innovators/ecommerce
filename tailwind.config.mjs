@@ -6,7 +6,11 @@ export default {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
-  },  
+    extend: {
+      fontFamily: {
+        custom: ['Vazir', 'sans-serif'],
+      },
+    },
+  },
   plugins: [],
 };
