@@ -1,4 +1,6 @@
+import { UserProvider } from "@/context/AuthContext";
 import "./globals.css";
+import TanstackQueryProvider from "@/components/partials/TanstackQueryProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -8,11 +10,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body
-        className={`antialiased font-custom`}
-      >
-        {children}
-      </body>
+      <UserProvider>
+        <TanstackQueryProvider>
+          <body
+            className={`antialiased font-custom`}
+          >
+            {children}
+          </body>
+        </TanstackQueryProvider>
+      </UserProvider>
     </html>
   );
 }
