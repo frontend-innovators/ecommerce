@@ -12,15 +12,9 @@
   font-style: normal;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 body {
   background: var(--background);
+  height: 100%;
   color: var(--foreground);
   font-family: "Vazir",Arial, Helvetica, sans-serif;
 }

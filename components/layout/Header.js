@@ -4,29 +4,54 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import Hamburger from '../module/Hamburger'
 
-import { IoIosSearch, IoIosHeartEmpty } from "react-icons/io";
-import { IoCartOutline } from "react-icons/io5";
+import { IoIosSearch, IoIosHeartEmpty, IoIosArrowDown } from "react-icons/io";
+import { IoCartOutline, IoExitOutline } from "react-icons/io5";
+import { RiAccountCircleLine } from "react-icons/ri";
 
 import { AnimatePresence, motion } from "framer-motion";
 import Search from '../module/Search'
+import { useUser } from '@/context/AuthContext'
+import { digitsEnToFa } from '@persian-tools/persian-tools'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false); // Open and close the menu on mobile 
   const [showBottomNav, setShowBottomNav] = useState(true); // Show navigation menu when scroll down
   const [lastScrollY, setLastScrollY] = useState(0); // For scrolling up and down 
+  const [showHeader, setShowHeader] = useState(true); // For scrolling up and down 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const { user, loading, logout } = useUser();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
-      if (currentScrollY > lastScrollY) {
-        //Scrolling Down
+      if (currentScrollY === 0) {
+        // At the top, ensure bottom nav is hidden
+        setShowBottomNav(false);
+      } else if (isAtBottom) {
+        // At the bottom, keep the bottom nav hidden
+        setShowBottomNav(false);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling Down → Show bottom nav
         setShowBottomNav(true);
       } else {
-        //Scrolling Up
-        setShowBottomNav(false)
+        // Scrolling Up → Hide bottom nav
+        setShowBottomNav(false);
       }
+      if (currentScrollY === 0) {
+        // If at the top, always show the header
+        setShowHeader(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling Down, hide the header
+        setShowHeader(false);
+      } else {
+        // Scrolling Up, show the header
+        setShowHeader(true);
+      }
+
+      setLastScrollY(currentScrollY);
 
       setLastScrollY(currentScrollY);
     }
@@ -48,7 +73,12 @@ function Header() {
 
   return (
     <header>
-      <div className='hidden sticky top-0 bg-white z-50 lg:grid lg:grid-cols-[3fr_2fr]'>
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: showHeader ? 0 : -200 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        className="hidden lg:grid lg:grid-cols-[3fr_2fr] fixed top-0 right-0 p-4 shadow-md w-full bg-white z-50"
+      >
         <div className='flex justify-right items-center'>
           <div>
             <Image
@@ -62,11 +92,33 @@ function Header() {
               <li className='pr-10 text-lg'><Link href="/">بلاگ</Link></li>
               <li className='pr-10 text-lg'><Link href="/">حساب کاربری</Link></li>
               <li className='pr-10 text-lg'><Link href="/">سوالات متداول</Link></li>
+              {user?.role === "admin" ? <li className='pr-10 text-xl'><Link href="#">داشبورد</Link></li> : null}
             </ul>
           </div>
         </div>
         <div className='flex justify-end items-center px-10 max-lg:hidden'>
-          <Link className='ml-10 text-lg' href="/auth">ثبت نام / ورود</Link>
+          <ul>
+            {loading ? (
+              <li className='pl-10 text-lg'><Link href="#">در حال بارگذاری...</Link></li>
+            ) : user ? (
+              <>
+                <li className='pl-10 text-lg relative'><span>{digitsEnToFa(user.phoneNumber)}</span><IoIosArrowDown onClick={() => setMenuIsOpen(!menuIsOpen)} className='inline-block cursor-pointer' />
+                  {menuIsOpen && (
+                    <div
+                      className="absolute top-[69px] w-44 text-lg z-10 before:content-[''] before:absolute before:top-[-34px] before:right-0 before:w-full before:h-8"
+                      style={{ backgroundColor: "var(--background-color)", color: "var(--text-color)" }}>
+                      <ul className='p-2'>
+                        <li className='text-sm'><Link href="/profile"><RiAccountCircleLine className='inline-block' /> حساب کاربری</Link></li>
+                        <li><button className='flex items-center mt-4 cursor-pointer text-sm' type='button' onClick={logout}><IoExitOutline className='ml-1' /> خروج از حساب کاربری</button></li>
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              </>
+            ) : (
+              <li className='pl-10 text-lg'><Link href="/auth/login">ورود/ثبت نام</Link></li>
+            )}
+          </ul>
           <ul className='flex justify-center items-center ml-8'>
             <li className='text-xl ml-2 cursor-pointer' onClick={() => setIsSearchOpen(true)}><IoIosSearch /></li>
             <li className='text-xl ml-2'><IoIosHeartEmpty /></li>
@@ -79,7 +131,7 @@ function Header() {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Menu */}
       <div className='lg:hidden flex justify-between items-center px-2 shadow-md'>
@@ -118,7 +170,7 @@ function Header() {
                     <li className="text-md mb-2"><Link href="#">بلاگ</Link></li>
                     <li className="text-md mb-2"><Link href="#">حساب کاربری</Link></li>
                     <li className="text-md mb-2"><Link href="#">سوالات متداول</Link></li>
-                    <li className="text-md mb-2"><Link href="#">ورود / ثبت نام</Link></li>
+                    <li className="text-md mb-2"><Link href="/auth/login">ورود / ثبت نام</Link></li>
                   </ul>
                 </div>
               </div>
@@ -154,11 +206,11 @@ function Header() {
       <AnimatePresence>
         {isSearchOpen && (
           <motion.div
-            initial={{ y: -300 }} // Start above the screen
+            initial={{ y: -600 }} // Start above the screen
             animate={{ y: 0 }}    // Animate to its position
-            exit={{ y: -300 }}    // Exit back above the screen when closed
+            exit={{ y: -600 }}    // Exit back above the screen when closed
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed top-0 right-0 p-4 shadow-md w-full bg-white z-50"
+            className="fixed top-0 right-0 py-4  w-full bg-white z-50"
           >
             <Search setIsSearchOpen={setIsSearchOpen} />
           </motion.div>

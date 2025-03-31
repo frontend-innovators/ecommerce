@@ -9,13 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@persian-tools/persian-tools": "^3.6.0",
+    "@tanstack/react-query": "^5.71.1",
+    "axios": "^1.8.4",
     "framer-motion": "^12.6.2",
+    "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "ldrs": "^1.1.5",
     "mongoose": "^8.13.0",
     "next": "15.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react18-input-otp": "^1.1.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
