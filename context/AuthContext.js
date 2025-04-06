@@ -18,9 +18,7 @@ export const UserProvider = ({ children }) => {
             }
 
             try {
-                const { data } = await api.get('/api/user/profile', {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
+                const { data } = await api.get('/api/user/profile');
                 setUser(data);
             } catch (error) {
                 console.error("Error fetching user:", error);
