@@ -52,8 +52,6 @@ function Header() {
       }
 
       setLastScrollY(currentScrollY);
-
-      setLastScrollY(currentScrollY);
     }
     window.addEventListener("scroll", handleScroll); // Attach event listener when component mounts
     return () => window.removeEventListener("scroll", handleScroll); // Cleanup: Remove event listener when component unmounts
@@ -92,7 +90,7 @@ function Header() {
               <li className='pr-10 text-lg'><Link href="/">بلاگ</Link></li>
               <li className='pr-10 text-lg'><Link href="/">حساب کاربری</Link></li>
               <li className='pr-10 text-lg'><Link href="/">سوالات متداول</Link></li>
-              {user?.role === "admin" ? <li className='pr-10 text-xl'><Link href="#">داشبورد</Link></li> : null}
+              {user?.role === "admin" ? <li className='pr-10 text-xl'><Link href="/nxt-admin">داشبورد</Link></li> : null}
             </ul>
           </div>
         </div>
