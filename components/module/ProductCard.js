@@ -32,7 +32,7 @@ const ProductCard = ({ thumbnail, title, price }) => {
 
       {/* ===== product information ==== */}
       <div className="flex flex-col px-1 z-40 ">
-        <p className=" text-center mb-1 font-bold mt-2 text-sm truncate xl:text-lg">
+        <p className=" text-center mb-1 font-bold mt-2 text-sm truncate lg:text-[15px] xl:text-lg">
           {title}
         </p>
         <div className="flex justify-between items-center font-bold text-xs text-gray-600 border-t pt-2 border-gray-200 xl:text-lg">
@@ -42,7 +42,7 @@ const ProductCard = ({ thumbnail, title, price }) => {
       </div>
 
       {/* ======== button ======== */}
-      <div className="absolute z-10 transition-transform duration-300 bottom-[50px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-translate-y-[12px]">
+      <div className="absolute z-10 transition-transform duration-300 bottom-[50px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-translate-y-[12px] xl:group-hover:-translate-y-[26px]">
         <div className="block md:hidden">
           <button className="border-4 border-white w-[72px] flex justify-center items-center bg-black text-xs px-4 py-3 rounded-3xl shadow-md">
             <svg
