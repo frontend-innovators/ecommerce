@@ -16,10 +16,12 @@ const PopularProducts = async () => {
     console.log(error);
   }
   return (
-    <div>
-      <div className="flex flex-col gap-6 mb-6 justify-center items-center">
-        <h1 className="text-2xl self-start font-bold">محبوبترین محصولات</h1>
-        <div className="flex flex-row justify-evenly border rounded-4xl w-[350px] py-2 px-6">
+    <div className="p-3 md:p-6 lg:mt-30 lg:p-12 xl:p-32">
+      <div className="flex flex-col gap-6 mb-6 justify-center items-center lg:flex-row lg:justify-between">
+        <h1 className="mr-1 text-2xl self-start font-bold xl:text-4xl">
+          محبوبترین محصولات
+        </h1>
+        <div className="w-full flex flex-row justify-evenly border rounded-4xl py-2 px-6 lg:w-[450px] xl:w-[500px] xl:py-3">
           <Link href="#">همه</Link>
           <Link href="#">زنانه</Link>
           <Link href="#">تیشرت</Link>
@@ -27,7 +29,7 @@ const PopularProducts = async () => {
           <Link href="#">ژاکت</Link>
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-col-4 justify-center">
+      <div className="grid w-full gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-8">
         {products.length > 0 &&
           products.map((product) => (
             <ProductCard key={product.id} {...product} />
