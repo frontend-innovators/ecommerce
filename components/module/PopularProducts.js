@@ -16,12 +16,12 @@ const PopularProducts = async () => {
     console.log(error);
   }
   return (
-    <div className="p-3 md:p-6 lg:mt-30 lg:p-12 xl:p-32">
+    <div className="py-3 px-4 md:p-6 md:px-10 lg:mt-30 lg:px-12">
       <div className="flex flex-col gap-6 mb-6 justify-center items-center lg:flex-row lg:justify-between">
         <h1 className="mr-1 text-2xl self-start font-bold xl:text-4xl">
           محبوبترین محصولات
         </h1>
-        <div className="w-full flex flex-row justify-evenly border rounded-4xl py-2 px-6 lg:w-[450px] xl:w-[500px] xl:py-3">
+        <div className="w-full flex flex-row justify-evenly border rounded-4xl py-2 px-4 md:px-28 lg:w-[450px] lg:px-0 xl:w-[500px] xl:py-3">
           <Link href="#">همه</Link>
           <Link href="#">زنانه</Link>
           <Link href="#">تیشرت</Link>

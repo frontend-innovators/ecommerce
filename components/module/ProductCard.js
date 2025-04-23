@@ -2,20 +2,19 @@ import Image from "next/image";
 import React from "react";
 
 const ProductCard = ({ thumbnail, title, price }) => {
-  console.log("title", title);
   return (
     <div className="group mb-6 w-full relative">
       {/* ======== image ======= */}
-      <div className=" w-full relative overflow-hidden rounded-2xl ">
+      <div className=" w-full h-[228px] relative overflow-hidden rounded-2xl md:h-[292px] xl:h-[360px]">
         <Image
-          className="rounded-2xl object-cover w-full transition-transform duration-500 group-hover:-translate-y-6 "
+          className="rounded-2xl object-cover w-full h-full transition-transform duration-500 group-hover:-translate-y-6 "
           alt="product thumbnail"
           src={thumbnail}
           width={220}
           height={300}
         />
 
-        <div className="absolute top-2 w-full flex flex-row justify-between px-2 xl:px-4 py-3">
+        <div className="absolute top-2 w-full flex flex-row justify-between px-2 lg:px-4 lg:py-2">
           <div className="flex flex-col items-end gap-2">
             <div className="w-7 h-7 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-[rgba(0,0,0,0.3)]">
               <Image width={18} height={18} alt="icon" src="/icons/heart.svg" />
