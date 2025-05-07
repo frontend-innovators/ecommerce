@@ -3,7 +3,9 @@ import Slider from '../module/Slider'
 
 function HomePage({ slides }) {
   return (
+
     <Slider slides={slides} />
+    
   )
 }
 
