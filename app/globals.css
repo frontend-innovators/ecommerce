@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
+@layer utilities {
+  .animate-spinSlow {
+    animation: spinSlow 20s linear infinite;
+  }
+
+  @keyframes spinSlow {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,5 +35,28 @@ body {
   background: var(--background);
   height: 100%;
   color: var(--foreground);
-  font-family: "Vazir",Arial, Helvetica, sans-serif;
+  font-family: "Vazir", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.swiper-button-next {
+  display: none !important;
+}
+
+.custom-prev {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  z-index: 50;
+  cursor: pointer;
+}
+
+.swiper-button-prev::after {
+  display: none !important;
+}
+
+@media(min-width: 768px) {
+  .full-screen-height {
+    height: calc(100dvh - 120px);
+  }
 }
