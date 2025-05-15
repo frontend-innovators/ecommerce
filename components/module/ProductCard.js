@@ -1,11 +1,18 @@
 import Image from "next/image";
 import React from "react";
 
-const ProductCard = ({ thumbnail, title, price }) => {
+const ProductCard = (props) => {
+  const { setIsOpen, setSelectedProduct, ...product } = props;
+  const { thumbnail, title, price } = product;
+  const showModalHandler = () => {
+    setIsOpen(true);
+    setSelectedProduct(product);
+  };
+
   return (
     <div className="group mb-6 w-full relative">
       {/* ======== image ======= */}
-      <div className=" w-full h-[228px] relative overflow-hidden rounded-2xl md:h-[292px] xl:h-[360px]">
+      <div className=" w-full h-[228px] relative overflow-hidden rounded-2xl md:h-[292px] xl:h-[360px] 2xl:h-[400px]">
         <Image
           className="rounded-2xl object-cover w-full h-full transition-transform duration-500 group-hover:-translate-y-6 "
           alt="product thumbnail"
@@ -36,14 +43,14 @@ const ProductCard = ({ thumbnail, title, price }) => {
         </p>
         <div className="flex justify-between items-center font-bold text-xs text-gray-600 border-t pt-2 border-gray-200 xl:text-lg">
           <span>قیمت(ریال)</span>
-          <span>{price.toLocaleString()}</span>
+          <span>{price.toLocaleString("fa-IR")}</span>
         </div>
       </div>
 
       {/* ======== button ======== */}
       <div className="absolute z-10 transition-transform duration-300 bottom-[50px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-translate-y-[12px] xl:group-hover:-translate-y-[26px]">
         <div className="block md:hidden">
-          <button className="border-4 border-white w-[72px] flex justify-center items-center bg-black text-xs px-4 py-3 rounded-3xl shadow-md">
+          <button  onClick={showModalHandler} className="border-4 border-white w-[72px] flex justify-center items-center bg-black text-xs px-4 py-3 rounded-3xl shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -58,7 +65,10 @@ const ProductCard = ({ thumbnail, title, price }) => {
           </button>
         </div>
         <div className="hidden md:block">
-          <button className="border-4 border-white w-[140px] bg-black font-bold text-white text-[14px] px-4 py-3 rounded-3xl">
+          <button
+            onClick={showModalHandler}
+            className="border-4 border-white w-[140px] bg-black font-bold text-white text-[14px] px-4 py-3 rounded-3xl"
+          >
             مشاهده محصول
           </button>
         </div>
