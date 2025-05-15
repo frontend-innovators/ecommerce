@@ -1,14 +1,12 @@
-import React from "react";
-import Slider from "../module/Slider";
-import PopularProducts from "../module/PopularProducts";
+import React from 'react'
+import Slider from '../module/Slider'
 
 function HomePage({ slides }) {
   return (
-    <>
-      <Slider slides={slides} />
-      <PopularProducts />
-    </>
-  );
+
+    <Slider slides={slides} />
+    
+  )
 }
 
 export default HomePage;

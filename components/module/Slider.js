@@ -93,13 +93,13 @@ const Slider = ({ slides }) => {
             </div>
 
             {/* Image Slider Section */}
-            <div className="relative flex-1 max-sm:min-w-[500px] max-lg:min-w-[1000px] md:max-w-[70%] h-auto rounded-3xl overflow-visible">
+            <div className="relative z-10 flex-1 max-sm:min-w-[500px] max-lg:min-w-[1000px] md:max-w-[70%] h-auto rounded-3xl overflow-visible">
                 {/* Custom navigation button that acts like autoplay (next slide) */}
                 <button
                     onClick={() => imageSwiper?.slideNext()}
-                    className="custom-prev absolute bottom-[450px] right-1/2 z-40"
+                    className="custom-prev absolute bottom-[450px] right-1/2"
                 >
-                    <FaArrowLeft className="text-white bg-black rounded-full p-2 w-10 h-10 md:w-12 md:h-12 transform translate-x-[40px]" />
+                    <FaArrowLeft className="text-white bg-black rounded-full p-2 w-10 h-10 md:w-12 md:h-12 transform translate-x-[40px] z-0" />
                 </button>
 
                 {/* Decorative image overlay */}
