@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from '../module/Slider'
 import Wardrobe from '../module/Wardrobe'
+import HottestSection from '../module/HottestSection'
 
 function HomePage({ slides }) {
   return (
@@ -8,6 +9,7 @@ function HomePage({ slides }) {
     <>
       <Slider slides={slides} />
       <Wardrobe />
+      <HottestSection />
     </>
   )
 }
