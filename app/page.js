@@ -1,5 +1,4 @@
 import HomePage from "@/components/template/HomePage";
-import PopularProducts from "@/components/module/PopularProducts";
 import Layout from "../components/layout/Layout";
 import { fetchSlides, getData } from "@/services/fetchData";
 
