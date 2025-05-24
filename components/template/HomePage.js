@@ -9,12 +9,13 @@ import GreatSaving from "../module/GreatSaving";
 import BlockBusterDeals from "@/components/module/BlockBusterDeals";
 
 function HomePage({ slides, productsData }) {
+  console.log(productsData);
   return (
     <>
       <Slider slides={slides} />
       <Wardrobe />
       <HottestSection />
-      <PopularProducts productsData={productsData}/>
+      <PopularProducts productsData={productsData} />
       <GreatSaving />
       <BlockBusterDeals productsData={productsData} />
     </>
