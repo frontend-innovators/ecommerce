@@ -24,7 +24,7 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
   return (
     <div className="relative">
       <div className="inset-0 z-60 fixed h-[100svh] bg-gray-500/30 backdrop-blur-sm p-[15px] md:p-0">
-        <div className="relative bg-white shadow-lg p-3 w-full h-full flex flex-col justify-between items-start md:top-1/2 md:-translate-y-1/2 md:h-[450px] md:flex-row md:pr-0">
+        <div className="relative  bg-white shadow-lg p-3 w-full h-full flex flex-col justify-between items-start md:top-1/2 md:-translate-y-1/2 md:h-[450px] md:flex-row md:pr-0 lg:h-[526px]">
           <div className="absolute top-3 left-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
             </svg>
           </div>
           <Swiper
-            className="w-[330px] md:w-[950px] "
+            className="w-[375px] md:w-[950px] box-border"
             spaceBetween={0}
             slidesPerView={1}
             onSlideChange={() => console.log("slide change")}
@@ -47,19 +47,19 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
             <SwiperSlide>
               <Image
                 src={gallery[0]}
-                width={373}
-                height={373}
+                width={335}
+                height={335}
                 alt="product image"
-                className="m-auto mt-8 md:w-[376px] md:h-[376px] md:m-0"
+                className=" mt-8 md:w-[376px] md:h-[376px] md:m-0 lg:w-[504px] lg:h-[504px]"
               />
             </SwiperSlide>
             <SwiperSlide>
               <Image
                 src={gallery[1]}
-                width={373}
-                height={373}
+                width={335}
+                height={335}
                 alt="product image"
-                className="m-auto mt-8 md:w-[376px] md:h-[376px] md:m-0"
+                className="m-auto mt-8 md:w-[376px] md:h-[376px] md:m-0 lg:w-[504px] lg:h-[504px]"
               />
             </SwiperSlide>
             <SwiperSlide>
@@ -68,7 +68,7 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
                 width={373}
                 height={373}
                 alt="product image"
-                className="m-auto mt-8   md:m-0"
+                className="m-auto mt-8 md:w-[376px] md:h-[376px] md:m-0 lg:w-[504px] lg:h-[504px]"
               />
             </SwiperSlide>
           </Swiper>
@@ -97,7 +97,7 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
           </div>
 
           <div>
-            <div className="md:mr-3 border-b border-gray-600 h-[376px] pt-1 mb-4">
+            <div className="md:mr-3 border-b border-gray-600 h-[376px] pt-1 mb-4 lg:mb-6 lg:h-[430px]">
               <span className="bg-black text-white rounded-md font-bold mt-6 inline-block px-2 md:mt-0">
                 20% تخفیف
               </span>
@@ -161,16 +161,18 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
                 و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود.
               </p>
               <div className="grid grid-cols-2 mt-4 mb-6">
-                <span className="font-bold text-xl">قیمت</span>
-                <span className="font-bold text-xl">تعداد</span>
-                <span className="text-xl">{price.toLocaleString("fa-IR")}</span>
+                <span className="font-bold text-lg mb-2">قیمت</span>
+                <span className="font-bold text-lg mb-2">تعداد</span>
+                <span className="text-xl lg:text-2xl">
+                  {price.toLocaleString("fa-IR")}
+                </span>
                 <div className="flex flex-row gap-1">
                   <span className="bg-black text-white flex justify-center items-center rounded-full w-7 h-7 text-center md:w-8 md:h-8 md:text-2xl">
                     -
                   </span>
                   <input
                     type="number"
-                    className="w-10 border rounded-2xl text-center appearance-none"
+                    className="w-10 border rounded-2xl text-center appearance-none mx-1"
                     defaultValue={1}
                   />
                   <span className="bg-black text-white flex justify-center items-center rounded-full w-7 h-7 text-center md:w-8 md:h-8 md:text-2xl">
@@ -178,11 +180,11 @@ const ProductModal = ({ setIsOpen, selectedProduct, isOpen }) => {
                   </span>
                 </div>
               </div>
-              <div className="flex gap-2 mt-2 mb-6 flex-row justify-around">
-                <button className="px-4 py-2 bg-black text-white rounded-xl text-sm ">
+              <div className="flex gap-2 mt-2 mb-6 flex-row justify-around lg:justify-start lg:gap-4  lg:mt-10 lg:flex-col">
+                <button className="px-4 py-2 bg-black font-bold text-white rounded-xl text-[15px] lg:text-xl ">
                   افزودن به سبد خرید
                 </button>
-                <button className="px-4 py-2 border text-black bg-white rounded-xl text-sm">
+                <button className="px-4 pr-2 py-2 border text-black font-bold bg-white rounded-xl text-[15px] lg:text-xl">
                   <div className="flex justify-center items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
