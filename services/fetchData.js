@@ -1,3 +1,4 @@
+import Category from "@/models/Category";
 import Slider from "@/models/Slider";
 import connectDB from "@/utils/connectDB"
 
