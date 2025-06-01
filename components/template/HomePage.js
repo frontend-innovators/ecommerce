@@ -7,13 +7,15 @@ import PopularProducts from "../module/PopularProducts";
 import GreatSaving from "../module/GreatSaving";
 
 import BlockBusterDeals from "@/components/module/BlockBusterDeals";
+import Categories from "../module/Categories";
 
-function HomePage({ slides, productsData }) {
+function HomePage({ slides, productsData,categories }) {
   console.log(productsData);
   return (
     <>
       <Slider slides={slides} />
       <Wardrobe />
+      <Categories categories={categories}/>
       <HottestSection />
       <PopularProducts productsData={productsData} />
       <GreatSaving />

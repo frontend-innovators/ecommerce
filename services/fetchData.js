@@ -1,5 +1,7 @@
 import Slider from "@/models/Slider";
 import connectDB from "@/utils/connectDB"
+import Category from "@/models/Category";
+
 
 export const fetchSlides = async () => {
     connectDB();
@@ -20,5 +22,16 @@ export async function getData() {
         return await res.json();
     } catch (error) {
         console.log(error)
+    }
+}
+
+
+export const fetchCategories = async () => {
+    connectDB();
+    try {
+        const categories = await Category.find();
+        return JSON.parse(JSON.stringify(categories));
+    } catch (error) {
+        throw new Error("!خطا در دریافت اطلاعات");
     }
 }
