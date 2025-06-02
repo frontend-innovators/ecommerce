@@ -16,7 +16,7 @@ function HomePage({ slides, productsData }) {
       <Wardrobe />
       <HottestSection />
       <PopularProducts productsData={productsData} />
-      <GreatSaving />
+      <GreatSaving productsData={productsData} />
       <BlockBusterDeals productsData={productsData} />
     </>
   );
