@@ -12,14 +12,14 @@ import Categories from "../module/Categories";
 import UsersViewed from "../module/UsersViewed";
 
 
-function HomePage({ slides, productsData, blogs,categories }) {
+function HomePage({ slides, productsData, blogs, categories }) {
   console.log(productsData);
   return (
     <>
       <Slider slides={slides} />
       <Wardrobe />
-      <GreatSaving productsData={productsData} />
       <Categories categories={categories}/>
+      <GreatSaving productsData={productsData} />
       <HottestSection />
       <PopularProducts productsData={productsData} />
       <BlockBusterDeals productsData={productsData} />
