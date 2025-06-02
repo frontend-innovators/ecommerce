@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const GreatSaving = ({ productsData }) => {
   return (
-    <div className="px-4 md:px-12 flex flex-col gap-8 lg:flex lg:flex-row-reverse lg:items-center lg:justify-between lg:pr-0 xl:pl-30 2xl:pl-52">
+    <div className=" px-4 md:px-12 flex flex-col gap-8 lg:flex lg:flex-row-reverse lg:mb-20 lg:items-center lg:justify-between lg:pr-0 xl:pl-30 2xl:pl-52">
       <div className="grid grid-cols-1 justify-items-center gap-y-6 md:grid-cols-2 md:gap-6 md:justify-items-center">
         {productsData.slice(0, 4).map((product) => (
           <GreatSavingCard key={product._id} image={product.thumbnail} />
