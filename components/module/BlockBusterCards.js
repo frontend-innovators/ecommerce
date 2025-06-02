@@ -15,7 +15,7 @@ function BlockBusterCards(props) {
                         bg-linear-to-t from-transparent to-[#fff] rounded-2xl shadow-[-1px_-28px_15px_0_rgba(0,0,0,0.10)] relative">
             {/* Display product image */}
             <Image className="w-[300px] h-[310px] sm:w-[210px] sm:h-[220px] md:w-[240px] md:h-[250px] lg:w-[190px] lg:h-[200px] xl:w-[270px] xl:h-[280px] -mt-14 sm:-mt-10
-                              hover:-translate-y-10 duration-700 absolute z-10" src={thumbnail} alt="thumbnail" width={300} height={300}/>
+                              hover:-translate-y-10 duration-700 absolute z-10" src={thumbnail} alt="thumbnail" width={1920} height={1080} quality={99}/>
             <div className="flex flex-col mt-70 sm:mt-50 md:mt-60 lg:mt-48 xl:mt-70 z-10 gap-y-2">
                 {/* Discount label (up to 60% off) */}
                 <h4 className="text-lg sm:text-xs md:text-base lg:text-xs xl:text-sm text-red-700 font-bold">تا 60% تخفیف</h4>

@@ -17,8 +17,9 @@ const ProductCard = (props) => {
           className="rounded-2xl object-cover w-full h-full transition-transform duration-500 group-hover:-translate-y-6 "
           alt="product thumbnail"
           src={thumbnail}
-          width={220}
-          height={300}
+          width={1920}
+          height={1080}
+          quality={99}
         />
 
         <div className="absolute top-2 w-full flex flex-row justify-between px-2 lg:px-4 lg:py-2">

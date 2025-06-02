@@ -3,7 +3,7 @@ import FilteredProducts from "./FilteredProducts";
 const PopularProducts = async ({ productsData }) => {
   const popularProducts = productsData.slice(0,8);
   return (
-    <div className="py-3 px-4 md:p-6 md:px-10 lg:mt-30 lg:px-12 2xl:px-36">
+    <div className="py-3 px-4 md:p-6 md:px-10 lg:mt-30 lg:px-12 xl:px-30 2xl:px-52">
       <FilteredProducts products={popularProducts} />
     </div>
   );
