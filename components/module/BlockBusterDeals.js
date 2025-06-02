@@ -11,8 +11,8 @@ import { Autoplay } from "swiper/modules";
 
 function BlockBusterDeals({ productsData }) {
     return(
-        <div className="w-full mt-10 py-10 px-5 sm:px-20 lg:px-14 xl:px-32 bg-[#fdf7f1]">
-            <div className="w-full flex flex-col items-center justify-between mx-auto gap-y-12">
+        <div className="w-full mt-10 py-10 bg-[#fdf7f1]">
+            <div className="flex flex-col items-center justify-between w-full xl:w-[1250px] mx-auto gap-y-12">
                 {/* Header section for title and 'view all' link */}
                 <div className="w-full flex flex-col items-start justify-between gap-y-4 md:flex-row md:items-center md:gap-y-0">
                     <h1 className="text-2xl lg:text-xl xl:text-3xl font-bold">فروش شگفت انگیز</h1>

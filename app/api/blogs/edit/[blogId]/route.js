@@ -17,6 +17,11 @@ export async function PUT(req, { params }) {
         const description = data.get("description");
         const tags = data.get("tags");
         const image = data.get("image");
+        const instagram = data.get("instagram");
+        const twitter = data.get("twitter");
+        const facebook = data.get("facebook");
+        const linkedin = data.get("linkedin");
+
 
         if (!blogId) {
             return NextResponse.json(
@@ -63,6 +68,10 @@ export async function PUT(req, { params }) {
         existingBlog.author = author || existingBlog.author;
         existingBlog.time = time || existingBlog.time;
         existingBlog.description = description || existingBlog.description;
+        existingBlog.socialMedia.instagram = instagram || existingBlog.socialMedia.instagram;
+        existingBlog.socialMedia.twitter = twitter || existingBlog.socialMedia.twitter;
+        existingBlog.socialMedia.facebook = facebook || existingBlog.socialMedia.facebook;
+        existingBlog.socialMedia.linkedin = linkedin || existingBlog.socialMedia.linkedin;
         existingBlog.tags = parsedTags;
         existingBlog.image = imagePath;
 

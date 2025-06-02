@@ -2,6 +2,11 @@
 
 @tailwind utilities;
 
+:root {
+  --background: #fdf7f1;
+  --foreground: #171717;
+}
+
 @layer utilities {
   .animate-spinSlow {
     animation: spinSlow 20s linear infinite;
@@ -38,11 +43,6 @@
   }
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @font-face {
   font-family: "Vazir";
   src: url("./fonts/Vazirmatn-Regular.ttf") format("woff2");
@@ -55,7 +55,7 @@ body {
   height: 100%;
   color: var(--foreground);
   font-family: "Vazir", Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .swiper-button-next {
