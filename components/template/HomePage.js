@@ -8,6 +8,7 @@ import GreatSaving from "../module/GreatSaving";
 
 import BlockBusterDeals from "@/components/module/BlockBusterDeals";
 import Categories from "../module/Categories";
+import UsersViewed from "../module/UsersViewed";
 
 function HomePage({ slides, productsData,categories }) {
   console.log(productsData);
@@ -18,6 +19,7 @@ function HomePage({ slides, productsData,categories }) {
       <Categories categories={categories}/>
       <HottestSection />
       <PopularProducts productsData={productsData} />
+      <UsersViewed/>
       <GreatSaving />
       <BlockBusterDeals productsData={productsData} />
     </>
