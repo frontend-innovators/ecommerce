@@ -6,6 +6,12 @@ const blogSchema = new Schema({
     author: { type: String, required: true },
     time: { type: String, required: true },
     description: { type: String, required: true },
+    socialMedia: {
+        instagram: { type: String, default: null },
+        twitter: { type: String, default: null },
+        facebook: { type: String, default: null },
+        linkedin: { type: String, default: null },
+    },
     tags: { type: [String], default: [] },
     image: { type: String, required: true },
 }, { timestamps: true });

@@ -19,6 +19,12 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
     time: "",
     tags: "",
     description: "",
+    socialMedia: {
+      instagram: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+    },
   });
   const [imageFile, setImageFile] = useState(null);
 
@@ -50,6 +56,12 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
         time: blogToEdit.time || "",
         tags: blogToEdit.tags || "",
         description: blogToEdit.description || "",
+        socialMedia: {
+          instagram: blogToEdit.socialMedia?.instagram || "",
+          twitter: blogToEdit.socialMedia?.twitter || "",
+          facebook: blogToEdit.socialMedia?.facebook || "",
+          linkedin: blogToEdit.socialMedia?.linkedin || "",
+        },
       });
       editor?.commands.setContent(blogToEdit.description || "");
     }
@@ -66,6 +78,16 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
     });
   };
 
+  const handleSocialChange = (field, value) => {
+    setBlog((prev) => ({
+      ...prev,
+      socialMedia: {
+        ...prev.socialMedia,
+        [field]: value,
+      },
+    }));
+  };
+
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
   };
@@ -79,6 +101,11 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
       formData.append("time", blog.time);
       formData.append("tags", blog.tags);
       formData.append("description", blog.description);
+      formData.append("instagram", blog.socialMedia.instagram || "");
+      formData.append("twitter", blog.socialMedia.twitter || "");
+      formData.append("facebook", blog.socialMedia.facebook || "");
+      formData.append("linkedin", blog.socialMedia.linkedin || "");
+
       if (imageFile) {
         formData.append("image", imageFile);
       }
@@ -116,7 +143,7 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
         </button>
         <h2 className="text-2xl font-bold mb-4">ویرایش پست</h2>
 
-        <input        
+        <input
           type="text"
           name="title"
           placeholder="عنوان پست"
@@ -134,7 +161,7 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
           className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
 
-        <input         
+        <input
           type="text"
           name="author"
           placeholder="نویسنده"
@@ -143,7 +170,7 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
           className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
 
-        <input       
+        <input
           type="text"
           name="time"
           placeholder="زمان مطالعه"
@@ -153,7 +180,7 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
         />
 
         {/* Tags Input */}
-        <input       
+        <input
           type="text"
           name="tags"
           placeholder="برچسب ها (با ویرگول جدا کنید)"
@@ -204,6 +231,39 @@ function EditBlogModal({ isOpen, setIsEditModalOpen, blogToEdit, updateBlog }) {
           </div>
           <EditorContent editor={editor} />
         </div>
+
+        <input
+          type="url"
+          name="instagram"
+          placeholder="آدرس پست اینستاگرام"
+          value={blog.socialMedia.instagram}
+          onChange={(e) => handleSocialChange("instagram", e.target.value)}
+          className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <input
+          type="url"
+          name="twitter"
+          placeholder="آدرس توییتر"
+          value={blog.socialMedia.twitter}
+          onChange={(e) => handleSocialChange("twitter", e.target.value)}
+          className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="url"
+          name="facebook"
+          placeholder="آدرس فیسبوک"
+          value={blog.socialMedia.facebook}
+          onChange={(e) => handleSocialChange("facebook", e.target.value)}
+          className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
+        <input
+          type="url"
+          name="linkedin"
+          placeholder="آدرس لینکدین"
+          value={blog.socialMedia.linkedin}
+          onChange={(e) => handleSocialChange("linkedin", e.target.value)}
+          className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+        />
 
         <div className="mt-4">
           <label className="bloc mb-2">تصویر:</label>

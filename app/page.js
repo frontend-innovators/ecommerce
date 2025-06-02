@@ -1,14 +1,15 @@
 import HomePage from "@/components/template/HomePage";
 import Layout from "../components/layout/Layout";
-import { fetchSlides, getData } from "@/services/fetchData";
+import { fetchBlogs, fetchSlides, getData } from "@/services/fetchData";
 
 export default async function Home() {
-    const slides = await fetchSlides();
-    const productsData = await getData();
+  const slides = await fetchSlides();
+  const blogs = await fetchBlogs();
+  const productsData = await getData();
 
   return (
     <Layout>
-      <HomePage slides={slides} productsData={productsData}/>
+      <HomePage slides={slides} productsData={productsData} blogs={blogs} />
     </Layout>
   );
 }
