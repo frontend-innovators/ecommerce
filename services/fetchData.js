@@ -1,3 +1,4 @@
+import Blog from "@/models/Blogs";
 import Category from "@/models/Category";
 import Slider from "@/models/Slider";
 import connectDB from "@/utils/connectDB"
@@ -7,6 +8,16 @@ export const fetchSlides = async () => {
     try {
         const slides = await Slider.find();
         return JSON.parse(JSON.stringify(slides));
+    } catch (error) {
+        throw new Error("!خطا در دریافت اطلاعات");
+    }
+}
+
+export const fetchBlogs = async () => {
+    connectDB();
+    try {
+        const blogs = await Blog.find();
+        return JSON.parse(JSON.stringify(blogs));
     } catch (error) {
         throw new Error("!خطا در دریافت اطلاعات");
     }

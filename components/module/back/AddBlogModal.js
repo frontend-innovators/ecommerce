@@ -22,6 +22,12 @@ function AddBlogModal({ setIsModalOpen, addBlog }) {
     time: "",
     tags: "",
     description: "",
+    socialMedia: {
+      instagram: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+    },
   });
   const [imageFile, setImageFile] = useState(null);
 
@@ -55,6 +61,17 @@ function AddBlogModal({ setIsModalOpen, addBlog }) {
     });
   };
 
+  const handleSocialChange = (field, value) => {
+    setBlog((prev) => ({
+      ...prev,
+      socialMedia: {
+        ...prev.socialMedia,
+        [field]: value,
+      },
+    }));
+  };
+
+
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]);
   };
@@ -68,6 +85,12 @@ function AddBlogModal({ setIsModalOpen, addBlog }) {
       formData.append("time", blog.time);
       formData.append("description", blog.description);
       formData.append("tags", blog.tags);
+      formData.append("instagram", blog.socialMedia.instagram);
+      formData.append("twitter", blog.socialMedia.twitter);
+      formData.append("facebook", blog.socialMedia.facebook);
+      formData.append("linkedin", blog.socialMedia.linkedin);
+
+
       if (imageFile) {
         formData.append("image", imageFile);
       }
@@ -236,6 +259,39 @@ function AddBlogModal({ setIsModalOpen, addBlog }) {
             </div>
 
           </div>
+
+          <input
+            type="url"
+            name="instagram"
+            placeholder="آدرس پست اینستاگرام"
+            value={blog.socialMedia.instagram}
+            onChange={handleSocialChange}
+            className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          <input
+            type="url"
+            name="twitter"
+            placeholder="آدرس توییتر"
+            value={blog.socialMedia.twitter}
+            onChange={handleSocialChange}
+            className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <input
+            type="url"
+            name="facebook"
+            placeholder="آدرس فیسبوک"
+            value={blog.socialMedia.facebook}
+            onChange={handleSocialChange}
+            className="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+          />
+          <input
+            type="url"
+            name="linkedin"
+            placeholder="آدرس لینکدین"
+            value={blog.socialMedia.linkedin}
+            onChange={handleSocialChange}
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-700"
+          />
 
           <div>
             <label className="block mb-2">تصویر:</label>
