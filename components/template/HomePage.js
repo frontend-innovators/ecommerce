@@ -3,23 +3,25 @@ import Slider from "../module/Slider";
 import Wardrobe from "../module/Wardrobe";
 import HottestSection from "../module/HottestSection";
 import PopularProducts from "../module/PopularProducts";
+import TrendingPost from "../module/TrendingPosts";
 
 import GreatSaving from "../module/GreatSaving";
 
 import BlockBusterDeals from "@/components/module/BlockBusterDeals";
 import Categories from "../module/Categories";
 
-function HomePage({ slides, productsData,categories }) {
+function HomePage({ slides, productsData, blogs, categories }) {
   console.log(productsData);
   return (
     <>
       <Slider slides={slides} />
       <Wardrobe />
       <Categories categories={categories}/>
+      <GreatSaving productsData={productsData} />
       <HottestSection />
       <PopularProducts productsData={productsData} />
-      <GreatSaving />
       <BlockBusterDeals productsData={productsData} />
+      <TrendingPost blogs={blogs} />
     </>
   );
 }

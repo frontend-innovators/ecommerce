@@ -16,6 +16,12 @@ export async function POST(req) {
         const tags = data.get("tags");
         const image = data.get("image");
 
+        // Social media URLs
+        const instagram = data.get("instagram") || null;
+        const twitter = data.get("twitter") || null;
+        const facebook = data.get("facebook") || null;
+        const linkedin = data.get("linkedin") || null;
+
         // Check if all required fields are provided
         if (!title || !description || !image) {
             return NextResponse.json(
@@ -45,7 +51,13 @@ export async function POST(req) {
                 time,
                 description,
                 tags: tagsArray,
-                image: `/images/${imageName}` // Save the relative path
+                image: `/images/${imageName}`, // Save the relative path
+                socialMedia: {
+                    instagram,
+                    twitter,
+                    facebook,
+                    linkedin,
+                },
             });
 
             await blog.save();

@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const GreatSavingCard = ({ image }) => {
   return (
-    <div className="relative w-[360px] h-[384px] rounded-3xl overflow-hidden">
+    <div className="m-0 relative w-full h-[384px] rounded-3xl overflow-hidden md:h-[352px] md:w-[330px] lg:w-[270px] lg:h-[288px] xl:w-[300px] xl:h-[320px]">
       <Image
         alt="image"
         src={image}
-        width={400}
-        height={400}
-        className="w-full h-full"
+        width={1920}
+        height={1080}
+        className="w-full h-full hover:scale-120 duration-550 delay-100"
       />
       <div className="absolute rounded-2xl border border-black bg-white bottom-4 left-4 right-4 justify-between flex flex-row p-3">
         <div className="flex flex-col ">

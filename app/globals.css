@@ -2,6 +2,11 @@
 
 @tailwind utilities;
 
+:root {
+  --background: #fdf7f1;
+  --foreground: #171717;
+}
+
 @layer utilities {
   .animate-spinSlow {
     animation: spinSlow 20s linear infinite;
@@ -27,7 +32,6 @@
   }
 
   @keyframes float {
-
     0%,
     100% {
       transform: translateY(0);
@@ -39,14 +43,9 @@
   }
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @font-face {
-  font-family: 'Vazir';
-  src: url('./fonts/Vazirmatn-Regular.ttf') format('woff2');
+  font-family: "Vazir";
+  src: url("./fonts/Vazirmatn-Regular.ttf") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -56,7 +55,7 @@ body {
   height: 100%;
   color: var(--foreground);
   font-family: "Vazir", Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .swiper-button-next {
@@ -85,9 +84,74 @@ body {
   transition: opacity 0.7s ease-in-out;
 }
 
-
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .full-screen-height {
     height: calc(100dvh - 120px);
   }
+}
+
+
+
+
+
+.text-stroke {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+.text-fill {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1;
+}
+
+/* 🌕 انیمیشن تغییر stroke-dasharray برای خالی شدن و دوباره پر شدن دور متن */
+@keyframes stroke-cycle {
+  0% {
+    stroke-dasharray: 100% 0%;
+  }
+  30% {
+    stroke-dasharray: 0% 100%;
+  }
+  60% {
+    stroke-dasharray: 100% 0%;
+  }
+  100% {
+    stroke-dasharray: 100% 0%;
+  }
+}
+
+.stroke-anim {
+  animation: stroke-cycle 10s linear infinite;
+}
+
+/* 🌕 انیمیشن fade-in برای پر شدن داخل متن */
+@keyframes fillFade {
+  0%, 59% {
+    fill: none;
+    opacity: 0;
+  }
+  60% {
+    fill: #ffffff;
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+    
+  }
+  100% {
+    opacity: 0;
+    fill: none;
+  }
+}
+
+.fill-fade {
+  animation: fillFade 10s ease-in-out infinite;
 }

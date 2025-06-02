@@ -15,8 +15,6 @@ const FilteredProducts = ({ products }) => {
     console.log(event.target);
   };
 
-  console.log("hiiiiii", selectedProduct, isOpen);
-
   useEffect(() => {}, [displayedProducts]);
   return (
     <>
