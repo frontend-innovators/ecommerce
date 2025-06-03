@@ -2,7 +2,7 @@ import Blog from "@/models/Blogs";
 import Category from "@/models/Category";
 import Slider from "@/models/Slider";
 import connectDB from "@/utils/connectDB"
-import Category from "@/models/Category";
+import categories from "@/models/Category";
 
 
 export const fetchSlides = async () => {

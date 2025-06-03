@@ -22,6 +22,7 @@ function HomePage({ slides, productsData, blogs, categories }) {
       <GreatSaving productsData={productsData} />
       <HottestSection />
       <PopularProducts productsData={productsData} />
+      <UsersViewed/>
       <BlockBusterDeals productsData={productsData} />
       <TrendingPost blogs={blogs} />
     </>
