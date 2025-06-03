@@ -24,7 +24,7 @@ export const fetchBlogs = async () => {
         throw new Error("!خطا در دریافت اطلاعات");
     }
 }
-
+// getData is using to get products
 export async function getData() {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/products`, { cache: "no-store" });
@@ -37,7 +37,7 @@ export async function getData() {
     }
 }
 
-
+// to get Categroies
 export const fetchCategories = async () => {
     connectDB();
     try {
