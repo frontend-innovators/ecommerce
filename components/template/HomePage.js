@@ -10,6 +10,7 @@ import GreatSaving from "../module/GreatSaving";
 import BlockBusterDeals from "@/components/module/BlockBusterDeals";
 import Categories from "../module/Categories";
 import UsersViewed from "../module/UsersViewed";
+import FeaturedNow from "../module/FeaturedNow";
 
 
 function HomePage({ slides, productsData, blogs, categories }) {
@@ -24,6 +25,7 @@ function HomePage({ slides, productsData, blogs, categories }) {
       <PopularProducts productsData={productsData} />
       <UsersViewed/>
       <BlockBusterDeals productsData={productsData} />
+      <FeaturedNow productsData={productsData} />
       <TrendingPost blogs={blogs} />
     </>
   );
