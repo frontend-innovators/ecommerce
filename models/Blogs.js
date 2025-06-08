@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose,{ Schema, model, models } from "mongoose";
 
 const blogSchema = new Schema({
     title: { type: String, required: true },
@@ -16,6 +16,6 @@ const blogSchema = new Schema({
     image: { type: String, required: true },
 }, { timestamps: true });
 
-const Blog = models.Blog || model("Blog", blogSchema);
+const Blog = mongoose.models?.Blog || model("Blog", blogSchema);
 
 export default Blog;
