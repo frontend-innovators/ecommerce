@@ -22,7 +22,6 @@ import RotateTextUsersViewed from "./RotateTextUsersViewed";
   const { ref, inView } = useInView({
     threshold: 0.1, 
   });
-
   return (
     <div className='text-4 bg-[#FFFAF3] flex flex-col lg:flex-row-reverse'>
         {/* big image of section */}
