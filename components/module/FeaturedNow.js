@@ -32,12 +32,12 @@ const FeaturedNow = ({ productsData }) => {
   }, []);
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 2xl:px-36">
       <div className="w-full flex items-center justify-between px-4 md:px-24 mb-6">
         <h1 className="text-lg md:text-3xl font-bold">پیشنهادهای ویژه</h1>
-        <div className="flex gap-x-1">
-          <Link href="/" className="text-lg">مشاهده همه</Link>
-          <IoIosArrowBack className="mt-1.5 size-4" />
+        <div className="flex gap-x-1 items-center">
+          <Link href="/" className="text-sm md:text-lg">مشاهده همه</Link>
+          <IoIosArrowBack className=" size-4" />
         </div>
       </div>
 
