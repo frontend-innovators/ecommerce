@@ -1,0 +1,8 @@
+.fade-swiper .swiper-slide {
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.fade-swiper .swiper-slide-visible {
+  opacity: 1 !important;
+}
