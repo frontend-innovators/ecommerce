@@ -90,10 +90,6 @@ body {
   }
 }
 
-
-
-
-
 .text-stroke {
   fill: none;
   stroke: #ffffff;
@@ -128,7 +124,8 @@ body {
 
 /* 🌕 انیمیشن fade-in برای پر شدن داخل متن */
 @keyframes fillFade {
-  0%, 59% {
+  0%,
+  59% {
     fill: none;
     opacity: 0;
   }
@@ -144,7 +141,6 @@ body {
   }
   85% {
     opacity: 0;
-    
   }
   100% {
     opacity: 0;
