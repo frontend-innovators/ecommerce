@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose,{ Schema, model, models } from "mongoose";
 
 const sliderSchema = new Schema(
     {
@@ -12,6 +12,6 @@ const sliderSchema = new Schema(
     { timestamps: true }
 );
 
-const Slider = models.Slider || model("Slider", sliderSchema);
+const Slider = mongoose.models?.Slider || model("Slider", sliderSchema);
 
 export default Slider;

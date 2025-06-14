@@ -6,6 +6,6 @@ const categorySchema = new Schema({
   image: { type: String, required: true },
 }, { timestamps: true });
 
-const Category = models.Category || model("Category", categorySchema);
+const Category = mongoose.models?.Category || model("Category", categorySchema);
 
 export default Category;
