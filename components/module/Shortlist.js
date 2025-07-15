@@ -6,8 +6,8 @@ import { digitsEnToFa } from "@persian-tools/persian-tools"
 
 const Shortlist = ({productsData}) => {
   return (
-    <div className=" px-4 md:px-12 flex flex-col gap-8 lg:flex lg:flex-row-reverse lg:mb-20 lg:items-center lg:justify-between lg:pl-0 xl:pr-30 2xl:pr-52">
-      <div className="relative w-full h-[336px] md:w-full md:h-[644px] lg:w-[640px] lg:h-[606px] lg:translate-x-10 overflow-hidden xl:w-[778px] xl:h-[664px] xl:translate-x-0">
+    <div className=" px-4 md:px-12 flex flex-col gap-10 lg:flex-row-reverse lg:mb-20 lg:items-center lg:justify-between lg:pl-0 xl:pr-30 2xl:pr-52">
+      <div className="relative w-full h-[336px] md:mb-8 md:w-full md:h-[644px] lg:w-[640px] lg:h-[606px] lg:translate-x-10 overflow-hidden xl:w-[778px] xl:h-[664px] xl:translate-x-0">
         <Image
           alt="girl"
           src="/images/pic2.jpg"
@@ -37,7 +37,7 @@ const Shortlist = ({productsData}) => {
         {productsData.slice(0, 4).map((product) => (
           <GreatSavingCard key={product._id} image={product.thumbnail} />
         ))}
-        <div className="inline-block w-[100px] h-[100px] absolute -top-10 -right-10 ">
+        <div className="w-[120px] h-[120px] absolute hidden sm:inline-block sm:-top-10 md:-right-8 lg:-right-16 2xl:-right-10">
           <div className="inline-block relative">
             <Image
               alt="start"
@@ -46,7 +46,7 @@ const Shortlist = ({productsData}) => {
               src="/images/rotatingStar.png"
             className="animate-spinSlow"
             />
-            <div className="absolute text-center inline-block w-[50px] top-6 right-6">
+            <div className="absolute text-center font-medium inline-block w-[50px] top-8 right-8">
             {digitsEnToFa(50)}% تخفیف
             </div>
           </div>
