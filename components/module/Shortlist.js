@@ -7,13 +7,13 @@ import { digitsEnToFa } from "@persian-tools/persian-tools"
 const Shortlist = ({productsData}) => {
   return (
     <div className=" px-4 md:px-12 flex flex-col gap-10 lg:flex-row-reverse lg:mb-20 lg:items-center lg:justify-between lg:pl-0 xl:pr-30 2xl:pr-52">
-      <div className="relative w-full h-[336px] md:mb-8 md:w-full md:h-[644px] lg:w-[640px] lg:h-[606px] lg:translate-x-10 overflow-hidden xl:w-[778px] xl:h-[664px] xl:translate-x-0">
+      <div className="relative w-full h-auto md:mb-8 md:w-full  lg:w-[640px] lg:translate-x-10 lg:self-center overflow-hidden xl:w-[778px] xl:translate-y-4 xl:h-[664px] xl:translate-x-0">
         <Image
           alt="girl"
           src="/images/pic2.jpg"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover "
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center gap-3 px-10 lg:items-end lg:pl-24 xl:px-0 xl:items-center">
           <div className="lg:w-[400px] text-center">
