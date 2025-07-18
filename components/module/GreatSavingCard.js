@@ -1,3 +1,4 @@
+import { digitsEnToFa } from "@persian-tools/persian-tools";
 import Image from "next/image";
 
 const GreatSavingCard = ({ image }) => {
@@ -12,12 +13,12 @@ const GreatSavingCard = ({ image }) => {
       />
       <div className="absolute rounded-2xl border border-black bg-white bottom-4 left-4 right-4 justify-between flex flex-row p-3">
         <div className="flex flex-col ">
-          <span className="text-red-700">بیش از 79% تخفیف</span>
+          <span className="text-red-700">بیش از {digitsEnToFa(79)}% تخفیف</span>
           <p className="font-semibold">ساق ورزشی مشبک ورزشی</p>
         </div>
         <div className="flex flex-col">
-          <span className="font-bold">$80</span>
-          <span className="line-through text-gray-500">$95</span>
+          <span className="font-bold">${digitsEnToFa(80)}</span>
+          <span className="line-through text-gray-500">${digitsEnToFa(95)}</span>
         </div>
       </div>
     </div>

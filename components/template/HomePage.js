@@ -11,7 +11,7 @@ import BlockBusterDeals from "@/components/module/BlockBusterDeals";
 import Categories from "../module/Categories";
 import UsersViewed from "../module/UsersViewed";
 import FeaturedNow from "../module/FeaturedNow";
-
+import Shortlist from "../module/Shortlist";
 
 function HomePage({ slides, productsData, blogs, categories }) {
   console.log(productsData);
@@ -19,13 +19,14 @@ function HomePage({ slides, productsData, blogs, categories }) {
     <>
       <Slider slides={slides} />
       <Wardrobe />
-      <Categories categories={categories}/>
+      <Categories categories={categories} />
       <GreatSaving productsData={productsData} />
       <HottestSection />
       <PopularProducts productsData={productsData} />
-      <UsersViewed/>
+      <UsersViewed />
       <BlockBusterDeals productsData={productsData} />
       <FeaturedNow productsData={productsData} />
+      <Shortlist productsData={productsData} />
       <TrendingPost blogs={blogs} />
     </>
   );
